@@ -1,0 +1,25 @@
+project_name: ses_exporter
+builds:
+  - env: [CGO_ENABLED=0]
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags: |
+      -X github.com/prometheus/common/version.BuildDate={{.Date}}
+      -X github.com/prometheus/common/version.BuildUser=goreleaser
+      -X github.com/prometheus/common/version.Revision={{.FullCommit}}
+      -X github.com/prometheus/common/version.Branch={{.Branch}}
+      -X github.com/prometheus/common/version.Version={{.Version}}
+      -X main.version={{.Version}}
+nfpms:
+- maintainer: Roald Nefs <roald.nefs@warpnet.nl>
+  description: Prometheus exporter for Amazon Simple Email Service (SES) metrics.
+  homepage: https://github.com/warpnet/ses_exporter
+  license: MIT
+  formats:
+  - deb
+  - rpm
+  - apk
