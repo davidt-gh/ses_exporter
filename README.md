@@ -25,3 +25,6 @@ To see all available configuration flags:
 ```bash
 ./ses_exporter --help
 ```
+
+## Docker Compose Usage
+Below is an example `docker-compose.yml` file that starts `ses_exporter` with port `9101` exposed. It also mounts your local `~/.aws` directory into the container so it can access your AWS credentials:

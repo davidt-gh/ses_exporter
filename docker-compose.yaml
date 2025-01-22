@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  ses_exporter:
+    image: davidtgh/ses_exporter:v0.0.1
+    ports:
+      - "9101:9101"
+    volumes:
+      - ~/.aws:/root/.aws
